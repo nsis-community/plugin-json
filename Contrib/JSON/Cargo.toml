@@ -1,0 +1,32 @@
+[package]
+name = "nsis-json"
+version = "0.1.0"
+description = "Read and write JSON and JSONC files from NSIS scripts"
+publish = false
+authors = ["Jan T. Sott"]
+edition = "2024"
+license = "MIT"
+rust-version = "1.85"
+
+[lib]
+# The DLL file name is the plug-in namespace in a script: `JSON::Get`.
+name = "JSON"
+crate-type = ["cdylib"]
+
+[dependencies]
+# `std`, because `jsonc-parser` needs it. No `mem-intrinsics`: the CRT that
+# `std` links already provides them.
+nsis-plugin = { git = "https://github.com/idleberg/nsis-plugin-rs", default-features = false, features = ["std"] }
+# `cst` is the lossless tree: comments and formatting survive `Save`.
+jsonc-parser = { version = "0.34", features = ["cst"] }
+
+[dev-dependencies]
+# Enables the fake-installer harness for `cargo test` only, so it never lands
+# in a shipped DLL.
+nsis-plugin = { git = "https://github.com/idleberg/nsis-plugin-rs", default-features = false, features = ["testing"] }
+
+# Unicode only: a JSON document must be UTF-8, which an ANSI build could reach
+# only through a lossy `CP_ACP` conversion.
+[features]
+default = ["unicode"]
+unicode = ["nsis-plugin/unicode"]
