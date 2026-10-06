@@ -7,7 +7,7 @@
 Unicode true
 
 !include "LogicLib.nsh"
-!include "${__FILEDIR__}/../Include/JSON.nsh"
+!include "${__FILEDIR__}\..\Include\JSON.nsh"
 
 !ifndef PLUGINDIR
 	!error "define PLUGINDIR: the Plugins/<variant> directory holding JSON.dll"
