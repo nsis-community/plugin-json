@@ -16,14 +16,14 @@ crate-type = ["cdylib"]
 [dependencies]
 # `std`, because `jsonc-parser` needs it. No `mem-intrinsics`: the CRT that
 # `std` links already provides them.
-nsis-plugin = { git = "https://github.com/idleberg/nsis-plugin-rs", default-features = false, features = ["std"] }
+nsis-plugin = { version = "0.1", default-features = false, features = ["std"] }
 # `cst` is the lossless tree: comments and formatting survive `Save`.
 jsonc-parser = { version = "0.34", features = ["cst"] }
 
 [dev-dependencies]
 # Enables the fake-installer harness for `cargo test` only, so it never lands
 # in a shipped DLL.
-nsis-plugin = { git = "https://github.com/idleberg/nsis-plugin-rs", default-features = false, features = ["testing"] }
+nsis-plugin = { version = "0.1", default-features = false, features = ["testing"] }
 
 # Unicode only: a JSON document must be UTF-8, which an ANSI build could reach
 # only through a lossy `CP_ACP` conversion.
