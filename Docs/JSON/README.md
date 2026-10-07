@@ -132,7 +132,6 @@ See `type_name` and `render` in [doc.rs](../../Contrib/JSON/src/doc.rs).
 
 ## Caveats
 
-- **JSONC is read, but not all of JSON5.** Comments and trailing commas are accepted, and they survive `Save`. Other JSON5 extras are rejected.
 - **Comments inside a value written with `SetRaw` are lost.** Only the value you pass is affected, not the rest of the file.
 - **`Get` on a container returns compact JSON, and a string comes back decoded.** Passing an array or object result to `SetRaw` works. Passing a plain string result fails, because it isn't valid JSON. Use `SetString` for strings.
 - **A string containing `\u0000` gets cut off at the NUL.** NSIS strings are NUL-terminated, so the script sees only the part before the NUL. No error is reported.
