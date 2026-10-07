@@ -1,8 +1,8 @@
 # JSON plug-in for NSIS
 
-[![License: MIT](https://img.shields.io/github/license/nsis-community/plugin-json)](LICENSE)
-[![Release](https://img.shields.io/github/v/release/nsis-community/plugin-json)](https://github.com/nsis-community/plugin-json/releases)
-[![CI](https://github.com/nsis-community/plugin-json/actions/workflows/ci.yml/badge.svg)](https://github.com/nsis-community/plugin-json/actions/workflows/ci.yml)
+![License](https://img.shields.io/github/license/nsis-community/plugin-json?color=blue&style=for-the-badge)
+![Release](https://img.shields.io/github/v/release/nsis-community/plugin-json?style=for-the-badge)
+![CI](https://img.shields.io/github/actions/workflow/status/nsis-community/plugin-json/ci.yml?style=for-the-badge)
 
 Read and write JSON and JSONC files from NSIS scripts, keeping comments, spacing and key order intact.
 
